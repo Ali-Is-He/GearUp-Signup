@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GearUp Class Sign-Up</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>GearUp Class Sign-Up</h1>
+      <p class="subtitle">Click on the sessions you're interested in below. Picking a session that overlaps another one you've already picked will swap it out — just like registering for classes. This just helps us gauge interest, it's not a guaranteed seat.</p>
+    </header>
+
+    <form id="signup-form">
+      <section class="student-info">
+        <label>
+          Name
+          <input type="text" id="student-name" name="name" required autocomplete="name" />
+        </label>
+        <label>
+          Team
+          <input type="text" id="student-team" name="team" required autocomplete="off" />
+        </label>
+        <label>
+          Years of Robotics Experience
+          <input type="number" id="student-experience" name="experience" min="0" step="1" required />
+        </label>
+      </section>
+
+      <div class="grid-scroll">
+        <div id="schedule-grid" class="schedule-grid"></div>
+      </div>
+
+      <section id="summary" class="summary">
+        <h2>Your picks</h2>
+        <p id="summary-empty" class="summary-empty">Nothing selected yet — click sessions above.</p>
+        <ul id="summary-list" class="summary-list"></ul>
+      </section>
+
+      <div id="form-status" class="form-status" role="status"></div>
+
+      <button type="submit" id="submit-btn">Submit</button>
+    </form>
+  </div>
+
+  <script src="schedule.js"></script>
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
