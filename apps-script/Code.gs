@@ -28,6 +28,45 @@ function getSheet_() {
   return sheet;
 }
 
+// Returns only aggregate counts per session — never names, teams, or
+// experience levels — since this endpoint is publicly readable.
+function doGet(e) {
+  try {
+    const sheet = getSheet_();
+    const data = sheet.getDataRange().getValues();
+    const headers = data[0];
+
+    const counts = {};
+    CLASSES.forEach((className) => {
+      counts[className] = {};
+    });
+
+    for (let i = 1; i < data.length; i++) {
+      const row = data[i];
+      CLASSES.forEach((className) => {
+        const colIndex = headers.indexOf(className);
+        const cellValue = row[colIndex];
+        if (!cellValue) return;
+        String(cellValue)
+          .split(",")
+          .map((s) => s.trim())
+          .filter(Boolean)
+          .forEach((session) => {
+            counts[className][session] = (counts[className][session] || 0) + 1;
+          });
+      });
+    }
+
+    return ContentService.createTextOutput(
+      JSON.stringify({ result: "success", counts })
+    ).setMimeType(ContentService.MimeType.JSON);
+  } catch (err) {
+    return ContentService.createTextOutput(
+      JSON.stringify({ result: "error", message: err.message })
+    ).setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
 function doPost(e) {
   try {
     const data = JSON.parse(e.postData.contents);

@@ -143,6 +143,7 @@
         <button type="button" class="info-btn" aria-label="View description for ${s.class} ${s.session}">i</button>
         <span class="session-name">${s.session}</span>
         <span class="session-time">${formatHour(s.start)} – ${formatHour(s.end)}</span>
+        <span class="session-count" data-count-key="${key}"></span>
       `;
 
       block.querySelector(".info-btn").addEventListener("click", (e) => {
@@ -216,6 +217,31 @@
     statusEl.className = `form-status ${type || ""}`.trim();
   }
 
+  async function refreshCounts() {
+    if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.startsWith("PASTE_")) return;
+
+    try {
+      const res = await fetch(APPS_SCRIPT_URL);
+      const data = await res.json();
+      if (data.result !== "success") return;
+
+      SESSIONS.forEach((s) => {
+        const count = (data.counts[s.class] && data.counts[s.class][s.session]) || 0;
+        const el = grid.querySelector(`[data-count-key="${CSS.escape(sessionKey(s))}"]`);
+        if (!el) return;
+        if (count > 0) {
+          el.textContent = `${count} interested`;
+          el.title = `${count} student${count === 1 ? "" : "s"} ${count === 1 ? "is" : "are"} currently interested in this session.`;
+        } else {
+          el.textContent = "";
+          el.removeAttribute("title");
+        }
+      });
+    } catch (err) {
+      // Counts are a nice-to-have — fail silently if unreachable.
+    }
+  }
+
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
@@ -240,6 +266,7 @@
       grid.querySelectorAll(".session-block.selected").forEach((b) => b.classList.remove("selected"));
       renderSummary();
       form.reset();
+      refreshCounts();
     } catch (err) {
       setStatus("Something went wrong submitting the form. Please try again.", "error");
     } finally {
@@ -249,4 +276,6 @@
 
   buildGrid();
   renderSummary();
+  refreshCounts();
+  setInterval(refreshCounts, 30000);
 })();

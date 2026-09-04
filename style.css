@@ -237,6 +237,13 @@ input[type="text"]:focus {
   white-space: nowrap;
 }
 
+.session-count {
+  font-size: 0.65rem;
+  font-weight: 600;
+  opacity: 0.85;
+  white-space: nowrap;
+}
+
 .summary {
   background: var(--card);
   border: 1px solid var(--border);
