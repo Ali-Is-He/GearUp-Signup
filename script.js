@@ -6,7 +6,7 @@
   const summaryList = document.getElementById("summary-list");
   const summaryEmpty = document.getElementById("summary-empty");
 
-  const ROW_PX = 22;
+  const ROW_PX = 34;
 
   const popover = document.createElement("div");
   popover.className = "session-popover hidden";

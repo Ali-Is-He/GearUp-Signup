@@ -143,13 +143,15 @@ input[type="text"]:focus {
   background: #eaf1fe;
   color: var(--accent-hover);
   border-radius: 6px;
-  padding: 3px 6px;
+  padding: 3px 20px 3px 6px;
   font: inherit;
-  text-align: left;
+  text-align: center;
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
+  gap: 1px;
   overflow: hidden;
   z-index: 1;
   transition: background 0.1s, transform 0.05s;
@@ -224,15 +226,15 @@ input[type="text"]:focus {
 
 .session-name {
   font-weight: 700;
-  font-size: 0.78rem;
-  line-height: 1.1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: 0.74rem;
+  line-height: 1.15;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .session-time {
-  font-size: 0.68rem;
+  font-size: 0.66rem;
+  line-height: 1.1;
   opacity: 0.85;
   white-space: nowrap;
 }
