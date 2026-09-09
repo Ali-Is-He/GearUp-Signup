@@ -63,7 +63,7 @@
   }
 
   function sessionKey(s) {
-    return `${s.class}__${s.session}`;
+    return `${s.class}__${s.session}__${s.start}`;
   }
 
   // sessionKey -> session object, for currently selected sessions.
