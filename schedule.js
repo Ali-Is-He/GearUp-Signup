@@ -28,13 +28,13 @@ const BREAKS = [
 const SESSIONS = [
   { class: "Beginner Build", session: "Session A", start: "09:00", end: "10:30", description: "" },
   { class: "Beginner Build", session: "Short Session 1", start: "10:30", end: "11:00", description: "" },
-  { class: "Beginner Build", session: "Session B", start: "12:00", end: "12:30", description: "" },
+  { class: "Beginner Build", session: "Session B", start: "12:00", end: "13:30", description: "" },
   { class: "Beginner Build", session: "Short Session 2", start: "13:30", end: "14:00", description: "" },
   { class: "Beginner Build", session: "Short Session 3", start: "14:00", end: "14:30", description: "" },
 
   { class: "Beginner Code", session: "Session A", start: "09:00", end: "10:30", description: "" },
   { class: "Beginner Code", session: "Short Session 1", start: "10:30", end: "11:00", description: "" },
-  { class: "Beginner Code", session: "Session B", start: "12:00", end: "12:30", description: "" },
+  { class: "Beginner Code", session: "Session B", start: "12:00", end: "13:30", description: "" },
   { class: "Beginner Code", session: "Short Session 2", start: "13:30", end: "14:00", description: "" },
   { class: "Beginner Code", session: "Short Session 3", start: "14:00", end: "14:30", description: "" },
 
@@ -52,13 +52,13 @@ const SESSIONS = [
 
   { class: "Advanced Build", session: "Building with Pneumatics", start: "09:00", end: "10:30", description: "" },
   { class: "Advanced Build", session: "Short Session 1", start: "10:30", end: "11:00", description: "" },
-  { class: "Advanced Build", session: "Session B", start: "12:00", end: "12:30", description: "" },
+  { class: "Advanced Build", session: "Session B", start: "12:00", end: "13:30", description: "" },
   { class: "Advanced Build", session: "Short Session 2", start: "13:30", end: "14:00", description: "" },
   { class: "Advanced Build", session: "Short Session 3", start: "14:00", end: "14:30", description: "" },
 
   { class: "Advanced Code", session: "Session A", start: "09:00", end: "10:30", description: "" },
   { class: "Advanced Code", session: "Short Session 1", start: "10:30", end: "11:00", description: "" },
-  { class: "Advanced Code", session: "Session B", start: "12:00", end: "12:30", description: "" },
+  { class: "Advanced Code", session: "Session B", start: "12:00", end: "13:30", description: "" },
   { class: "Advanced Code", session: "Short Session 2", start: "13:30", end: "14:00", description: "" },
   { class: "Advanced Code", session: "Short Session 3", start: "14:00", end: "14:30", description: "" },
 
